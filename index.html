@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WardenClyffe Power &amp; Light | A Wild Wipes Draws Company</title>
+<meta name="description" content="Satire by Wild Wipes Draws: a fictional wireless power company built on Nikola Tesla's Wardenclyffe Tower design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F4F6F8; --ink:#0F1E33; --muted:#566275;
+  --brand:#0B3D91; --brand-dk:#082B66; --accent:#1E8A5F; --accent-soft:#E7F4EE; --arc:#6D5EF5; --rule:#E2E6EB;
+  --font:"Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif:"Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:#FFFFFF;color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--brand)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+h1,h2,h3{font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:-.015em}
+h1{font-size:clamp(2rem,4vw,2.9rem)}
+h2{font-size:clamp(1.45rem,2.4vw,1.8rem)}
+h3{font-size:1.15rem}
+p{margin:0 0 1em;max-width:64ch}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.lede{font-size:1.05rem;color:var(--muted)}
+.fine{font-size:.8rem;color:var(--muted)}
+
+.status{background:var(--brand-dk);color:#DCE6F7;font-size:.82rem;padding:7px 0}
+.status .wrap{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
+.status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5BE3A7;margin-right:7px;vertical-align:middle}
+
+header.site{background:#fff;border-bottom:1px solid var(--rule);border-top:3px solid var(--accent);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:26px;height:42px;color:var(--brand)}
+.brand b{font-weight:600;font-size:1.05rem;display:block;line-height:1.1;letter-spacing:-.01em}
+.brand small{font-size:.76rem;color:var(--muted)}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+nav.main a{text-decoration:none;color:var(--ink);padding:8px 12px;font-size:.9rem;font-weight:500}
+nav.main a:hover{color:var(--brand)}
+nav.main a[aria-current="page"]{color:var(--brand);box-shadow:inset 0 -2px 0 var(--brand)}
+nav.main a.cta{background:var(--brand);color:#fff;border-radius:4px;margin-left:10px;box-shadow:none}
+nav.main a.cta:hover{background:var(--brand-dk);color:#fff}
+
+.page{display:none;padding:0 0 96px}
+.page.active{display:block}
+
+.btn{display:inline-block;font:600 .92rem var(--font);padding:11px 22px;border-radius:4px;text-decoration:none;border:1.5px solid var(--brand);cursor:pointer}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-dk)}
+.btn.ghost{background:#fff;color:var(--brand)}
+.btn.ghost:hover{background:var(--surface)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* hero: full-bleed photo with overlay */
+.herobanner{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0F1E33}
+.herobanner .media{position:absolute;inset:0}
+.herobanner .media svg,.herobanner .media img{width:100%;height:100%;object-fit:cover;display:block}
+.herobanner::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,20,40,.82) 0%,rgba(8,20,40,.55) 45%,rgba(8,20,40,0) 80%)}
+.herobanner .wrap{position:relative;z-index:1;padding-top:96px;padding-bottom:80px;width:100%}
+.herobanner h1{color:#fff;max-width:14ch}
+.herobanner .lede{color:#D5DEEC;max-width:46ch}
+.herobanner .fine{color:#B8C4D8}
+.herobanner .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+.herobanner .btn.ghost:hover{background:rgba(255,255,255,.1)}
+.herobanner .credit{position:absolute;right:16px;bottom:12px;z-index:1;font-size:.75rem;color:#C9D3E3}
+
+figure.photo{margin:0}
+figure.photo svg,figure.photo img{display:block;width:100%;height:auto;border-radius:6px;aspect-ratio:3/2;object-fit:cover}
+figure.photo figcaption{font-size:.84rem;color:var(--muted);padding:10px 2px 0}
+
+.glance{display:grid;grid-template-columns:repeat(4,1fr);margin:0;background:var(--surface);border-bottom:1px solid var(--rule)}
+.glance div{padding:28px 28px;border-left:1px solid var(--rule)}
+.glance div:first-child{border-left:0}
+.glance dt{font-size:.85rem;color:var(--muted)}
+.glance dd{margin:4px 0 0;font-size:1.55rem;font-weight:600;color:var(--accent)}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin:88px 0}
+.split.rev>:first-child{order:2}
+
+blockquote.test{margin:88px 0;padding:48px 56px;background:var(--accent-soft);border-left:5px solid var(--accent);border-radius:0 6px 6px 0}
+blockquote.test p{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.4;font-style:italic;max-width:36ch;margin-bottom:.7em}
+blockquote.test cite{font-style:normal;color:var(--muted);font-size:.95rem}
+
+.bundle{background:linear-gradient(100deg,var(--brand) 0%,var(--brand) 55%,#146B55 100%);color:#fff;padding:40px 44px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.bundle h3{margin:0 0 .3em}
+.bundle p{margin:0;color:#D5DEEC}
+.bundle .btn{background:#fff;color:var(--brand);border-color:#fff}
+
+ol.steps{list-style:none;padding:0;margin:32px 0 64px;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+ol.steps li{counter-increment:s;padding:24px;border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:6px;background:#fff}
+ol.steps li::before{content:"Step " counter(s);display:block;font-size:.82rem;font-weight:600;color:var(--accent);margin-bottom:10px}
+ol.steps strong{display:block;font-size:1.05rem;margin-bottom:6px}
+.tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child th,tr:last-child td{border-bottom:0}
+th{font-weight:600;width:28%;background:var(--surface)}
+td.note{color:var(--muted);font-size:.9rem}
+.warning{border-left:4px solid #C98A1B;padding:24px 28px;background:#FFF8EC;margin:56px 0;border-radius:0 6px 6px 0}
+.warning h3{margin-top:0}
+.warning ul{margin:0;padding-left:1.2em}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;margin:40px 0 72px}
+.plan{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:32px;display:flex;flex-direction:column}
+.plan.feat{border:2px solid var(--accent);position:relative;box-shadow:0 12px 32px rgba(30,138,95,.12)}
+.plan.feat .tag{position:absolute;top:-13px;left:28px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:600;padding:4px 12px;border-radius:20px}
+.price{font-size:2.1rem;font-weight:600;line-height:1;margin:.25em 0 .4em;color:var(--ink)}
+.price small{font-size:.9rem;font-weight:400;color:var(--muted)}
+.plan ul{padding-left:1.1em;margin:12px 0 28px;flex:1;color:var(--ink)}
+.plan li{margin-bottom:8px}
+.plan li::marker{color:var(--accent)}
+.addons{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:24px 0 16px}
+.addons div{padding:24px;background:var(--surface);border-radius:6px;border-top:3px solid var(--accent)}
+.addons h3{font-size:1.02rem;margin-bottom:4px}
+.addons .cost{color:var(--accent);font-weight:600;margin-bottom:.5em}
+.addons p:last-child{margin:0}
+
+.timeline{list-style:none;padding:0;margin:40px 0;border-left:2px solid var(--rule);max-width:760px}
+.timeline li{position:relative;padding:0 0 36px 36px}
+.timeline li::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--muted)}
+.timeline li.ours::before{background:var(--accent);border-color:var(--accent)}
+.timeline .yr{font-size:1.1rem;font-weight:600}
+.timeline p{margin:.2em 0 0}
+.legend{font-size:.9rem;color:var(--muted);display:flex;gap:24px;flex-wrap:wrap;margin-top:32px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;border:2px solid var(--muted);vertical-align:middle}
+.legend span.o::before{background:var(--accent);border-color:var(--accent)}
+.histphoto{margin:48px 0 0}
+
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:28px 0 72px}
+.board>figure{margin:0}
+.board figcaption{font-size:.92rem;color:var(--muted);margin-top:12px}
+.board figcaption b{display:block;color:var(--ink);font-size:1.02rem}
+.board figure.photo svg,.board figure.photo img{aspect-ratio:1/1}
+.ticker{display:flex;gap:32px;flex-wrap:wrap;align-items:baseline;padding:24px 28px;background:var(--surface);border-radius:6px;margin:32px 0 64px}
+.ticker .sym{font-weight:600;letter-spacing:.04em}
+.ticker .val{font-size:1.6rem;font-weight:600;color:var(--accent)}
+.ticker .chg{color:var(--muted)}
+details{border-bottom:1px solid var(--rule);padding:18px 0;max-width:820px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0}
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;margin-top:80px;padding-top:64px;border-top:1px solid var(--rule)}
+.field{display:flex;flex-direction:column;margin-bottom:18px}
+.field label{font-weight:600;font-size:.9rem;margin-bottom:6px}
+input,select,textarea{font:inherit;color:var(--ink);background:#fff;border:1px solid #C3CBD6;border-radius:4px;padding:11px 13px}
+textarea{min-height:110px;resize:vertical}
+.confirm{display:none;border-left:4px solid var(--accent);padding:14px 18px;background:#EEF7F3;margin-top:16px;border-radius:0 4px 4px 0}
+.confirm.show{display:block}
+.err{color:#B3261E;font-size:.86rem;margin-top:5px;display:none}
+.err.show{display:block}
+
+footer.site{border-top:4px solid var(--accent);background:#0F1E33;color:#C6D0DF;padding:64px 0 36px;font-size:.92rem}
+footer.site .brand{color:#fff}
+footer.site .brand svg{color:#fff}
+footer.site .brand small{color:#9FB0C8}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.fcols h4{margin:0 0 12px;font-size:.92rem;color:#fff}
+.fcols ul{list-style:none;padding:0;margin:0}
+.fcols li{margin-bottom:8px}
+.fcols a{color:#C6D0DF;text-decoration:none}
+.fcols a:hover{color:#fff;text-decoration:underline}
+.disclaimer{border:1px solid #33445F;border-radius:6px;padding:24px 28px;background:#152843}
+.disclaimer h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+.disclaimer p{max-width:none;margin:0 0 .6em;font-size:.86rem;color:#C6D0DF}
+.copy{margin-top:24px;color:#8698B3;font-size:.8rem}
+
+
+/* photo slots */
+.slot{position:relative;width:100%;aspect-ratio:3/2;border-radius:6px;overflow:hidden;background:#E9EDF2 center/cover no-repeat}
+.slot.square{aspect-ratio:1/1}
+.herobanner .slot{position:absolute;inset:0;aspect-ratio:auto;border-radius:0;background-color:#1B2C47;background-image:linear-gradient(135deg,#1B2C47 0%,#2E4468 100%)}
+.slot img{width:100%;height:100%;object-fit:cover;display:block}
+.slot .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#8A97A8;font-size:.85rem}
+.slot .ph svg{width:28px;height:44px;opacity:.55}
+.herobanner .slot .ph{display:none}
+.slot.filled .ph{display:none}
+.board .slot{margin-bottom:0}
+figure.photo .slot{margin:0}
+
+/* page header band for interior pages */
+.pagehead{background:var(--surface);border-bottom:1px solid var(--rule);padding:56px 0 48px;margin-bottom:72px}
+.pagehead .crumb{font-size:.85rem;color:var(--muted);margin-bottom:10px}
+.pagehead .crumb a{color:var(--muted);text-decoration:none}
+.pagehead .crumb a:hover{color:var(--brand)}
+.pagehead h1{margin-bottom:.35em}
+.pagehead .lede{margin:0;max-width:60ch}
+.sec{margin:88px 0}
+.sec:first-child{margin-top:0}
+.sec-intro{max-width:60ch;color:var(--muted);margin-bottom:32px}
+
+/* feature row */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:8px}
+.features h3{font-size:1.05rem;margin-bottom:.4em;padding-top:18px;border-top:2px solid var(--accent)}
+.features p{color:var(--muted);margin:0}
+
+/* news */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.news article{border:1px solid var(--rule);border-radius:6px;padding:24px;display:flex;flex-direction:column;background:#fff}
+.news time{font-size:.82rem;color:var(--accent);font-weight:600;margin-bottom:8px}
+.news h3{font-size:1.02rem;line-height:1.35;margin-bottom:.5em}
+.news p{color:var(--muted);font-size:.93rem;margin:0}
+
+/* coverage lists */
+.cov{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:20px 0}
+.cov h3{font-size:.95rem;margin-bottom:8px}
+.cov ul{margin:0;padding-left:1.1em}
+.cov li{margin-bottom:4px}
+.cov .yes li::marker{color:var(--accent)}
+.cov .no li::marker{color:#B3261E}
+
+.contact-meta p{margin-bottom:1.2em}
+.contact-meta strong{display:block;font-size:.88rem}
+
+@media (max-width:900px){
+  .split,.contact{grid-template-columns:1fr;gap:36px}
+  .split.rev>:first-child{order:0}
+  .glance{grid-template-columns:1fr 1fr}
+  .glance div:nth-child(3){border-left:0}
+  .plans,.addons,.board,.features,.news{grid-template-columns:1fr}
+  .features{gap:28px}
+  .pagehead{padding:40px 0 32px;margin-bottom:48px}
+  .fcols{grid-template-columns:1fr}
+  header.site{position:static}
+  header.site .wrap{flex-direction:column;align-items:flex-start}
+  nav.main a.cta{margin-left:0}
+  .herobanner{min-height:520px}
+  .herobanner::after{background:linear-gradient(0deg,rgba(8,20,40,.9) 0%,rgba(8,20,40,.5) 60%,rgba(8,20,40,.2) 100%)}
+  blockquote.test{padding:32px 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="status" role="status">
+  <div class="wrap">
+    <span><span class="dot"></span>Service status: all regions operating normally</span>
+    <span>Customer service 1-800-555-0187 &nbsp;|&nbsp; Mon–Fri, 8 a.m.–6 p.m. ET</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="WardenClyffe Power and Light home">
+      <span class="tw" data-tower="mini"></span>
+      <span><b>WardenClyffe Power &amp; Light</b><small>A Wild Wipes Draws company</small></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#technology">Technology</a>
+      <a href="#plans">Plans &amp; Pricing</a>
+      <a href="#about">About</a>
+      <a href="#investors">Investors</a>
+      <a class="cta" href="#contact">Request service</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="page" id="page-home" data-page="home">
+  <div class="herobanner">
+    <div class="media"><div class="slot" data-slot="home-hero" data-label="Hero: the tower"></div></div>
+    <div class="wrap">
+      <h1>Wireless power for the modern home.</h1>
+      <p class="lede">WardenClyffe Power &amp; Light delivers electricity without poles, lines, or meters, using a transmission tower built to Nikola Tesla’s original 1901 design.</p>
+      <div class="actions">
+        <a class="btn primary" href="#plans">View plans</a>
+        <a class="btn ghost" href="#technology">How it works</a>
+      </div>
+    </div>
+  </div>
+  <dl class="glance">
+    <div><dt>Transmission tower height</dt><dd>187 ft</dd></div>
+    <div><dt>Power lines required</dt><dd>0 mi</dd></div>
+    <div><dt>Service regions</dt><dd>3</dd></div>
+    <div><dt>Original design</dt><dd>1901</dd></div>
+  </dl>
+  <div class="wrap">
+    <div class="sec" style="margin-top:88px">
+      <h2>A simpler way to power your home.</h2>
+      <p class="sec-intro">Conventional utilities depend on thousands of miles of cable. We depend on one tower.</p>
+      <div class="features">
+        <div><h3>No lines to maintain</h3><p>Power travels through the earth and the upper atmosphere, so storms, fallen trees, and downed lines are no longer your concern.</p></div>
+        <div><h3>Nothing to dig up</h3><p>Service requires a single receiver unit. There is no trenching, no meter, and no connection to the grid.</p></div>
+        <div><h3>Built on a proven design</h3><p>WardenClyffe II follows plans Nikola Tesla developed more than a century ago, updated with modern materials.</p></div>
+      </div>
+    </div>
+
+    <div class="split">
+      <figure class="photo">
+        <div class="slot" data-slot="home-feature" data-label="Customer home"></div>
+        <figcaption>Residential service, Waynesburg, Pennsylvania.</figcaption>
+      </figure>
+      <div>
+        <h2>Residential service, reimagined.</h2>
+        <p>Most homes in our service area are already within range of WardenClyffe II. Once a technician installs your receiver, service begins immediately.</p>
+        <p>Customers located near the tower may find that service begins slightly before installation.</p>
+        <a class="btn ghost" href="#plans">Check your service area</a>
+      </div>
+    </div>
+
+    <blockquote class="test">
+      <p>“We switched in June. The lights work, the bill is simple, and we’ve mostly stopped noticing the hum.”</p>
+      <cite>Dale R., Residential Plus customer, Waynesburg, PA</cite>
+    </blockquote>
+
+    <div class="sec">
+      <h2>Company news</h2>
+      <div class="news">
+        <article><time datetime="2026-10">October 2026</time><h3>WardenClyffe expands service to Las Vegas, Nevada</h3><p>Customers in Clark County can now request service. Coverage between Ohio and Nevada is not available.</p></article>
+        <article><time datetime="2026-09">September 2026</time><h3>An update on service in Ohio</h3><p>Service in Ohio remains limited to areas of level terrain. Our survey of hilly regions is ongoing.</p></article>
+        <article><time datetime="2026-08">August 2026</time><h3>Statement regarding New Jersey and Indiana</h3><p>WardenClyffe Power &amp; Light will not offer service in New Jersey or Indiana. This decision is final.</p></article>
+      </div>
+    </div>
+
+    <div class="bundle">
+      <div>
+        <h3>Bundle with Volcano Insurance</h3>
+        <p>Customers of our partner company Volcano Insurance can combine both services on one monthly bill.</p>
+      </div>
+      <a class="btn ghost" href="#plans">Learn about bundling</a>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="page" id="page-technology" data-page="technology">
+  <div class="pagehead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Technology</div>
+    <h1>Technology</h1>
+    <p class="lede">WardenClyffe II is a 187-foot wireless transmission tower in Kvikkjokk, Sweden, built to the specifications of Nikola Tesla’s original Wardenclyffe design.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <h2>How wireless transmission works</h2>
+      <ol class="steps">
+        <li><div><strong>Generation</strong>Electricity is produced at our Kvikkjokk facility and delivered to the base of the tower.</div></li>
+        <li><div><strong>Amplification</strong>A magnifying transmitter in the tower laboratory raises the energy to transmission voltage.</div></li>
+        <li><div><strong>Transmission</strong>The tower sends energy through the earth and the upper atmosphere at the same time, as described in Tesla’s original patents.</div></li>
+        <li><div><strong>Reception</strong>A receiver unit at your home collects the energy and converts it for standard household use.</div></li>
+      </ol>
+    </div>
+
+    <div class="split">
+      <figure class="photo">
+        <div class="slot" data-slot="tower-feature" data-label="Laboratory"></div>
+        <figcaption>Primary coil, WardenClyffe II laboratory.</figcaption>
+      </figure>
+      <div>
+        <h2>Designed in 1901. Built in 2026.</h2>
+        <p>Our engineers followed Tesla’s surviving plans as closely as possible, including the 68-foot hemispherical dome and the deep earth shaft beneath the tower.</p>
+        <p>Where the original plans were incomplete, we made reasonable assumptions.</p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Specifications</h2>
+      <div class="tablewrap">
+        <table>
+          <tbody>
+            <tr><th>Tower location</th><td>Kvikkjokk, Sweden</td></tr>
+            <tr><th>Tower height</th><td>187 feet</td></tr>
+            <tr><th>Dome</th><td>68-foot diameter, hemispherical</td></tr>
+            <tr><th>Foundation</th><td>Earth shaft, approximately 120 feet deep</td></tr>
+            <tr><th>Frame</th><td>Timber and steel lattice</td></tr>
+            <tr><th>Transmission method</th><td>Earth-resonant, per Tesla’s 1901 design</td></tr>
+            <tr><th>Service regions</th><td>Western Pennsylvania; Ohio (level terrain); Las Vegas, Nevada</td></tr>
+            <tr><th>Availability</th><td>99.9%, excluding scheduled maintenance and thunderstorms</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="warning">
+      <h3>Safety near the tower</h3>
+      <ul>
+        <li>Keep at least 400 feet between yourself and the base of the tower.</li>
+        <li>Do not attempt to access the dome or upper structure.</li>
+        <li>Receiver units must be installed by a WardenClyffe technician.</li>
+        <li>A faint hum near metal fixtures is normal and does not require service.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="page" id="page-plans" data-page="plans">
+  <div class="pagehead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Plans &amp; Pricing</div>
+    <h1>Plans &amp; Pricing</h1>
+    <p class="lede">Straightforward monthly pricing with no installation fees, no meters, and no power lines.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="plans" style="margin-top:0">
+      <div class="plan">
+        <h3>Residential Basic</h3>
+        <div class="price">$19<small> / month</small></div>
+        <p>For apartments and smaller homes.</p>
+        <ul>
+          <li>Lighting and small appliances</li>
+          <li>Standard receiver unit</li>
+          <li>Online account and paperless billing</li>
+        </ul>
+        <a class="btn ghost" href="#contact">Choose Basic</a>
+      </div>
+      <div class="plan feat">
+        <span class="tag">Most popular</span>
+        <h3>Residential Plus</h3>
+        <div class="price">$29.99<small> / month</small></div>
+        <p>Whole-home wireless power.</p>
+        <ul>
+          <li>Full household coverage, including major appliances</li>
+          <li>High-capacity receiver unit</li>
+          <li>24/7 customer support</li>
+          <li>One-time grounding fee waived</li>
+        </ul>
+        <a class="btn primary" href="#contact">Choose Plus</a>
+      </div>
+      <div class="plan">
+        <h3>Business</h3>
+        <div class="price">Custom</div>
+        <p>For farms, factories, and commercial properties.</p>
+        <ul>
+          <li>Dedicated account manager</li>
+          <li>Priority transmission</li>
+          <li>Custom service agreement</li>
+        </ul>
+        <a class="btn ghost" href="#contact">Contact sales</a>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Add-ons</h2>
+      <div class="addons">
+        <div><h3>Surge protection</h3><p class="cost">$4 / month</p><p>Recommended for all customers.</p></div>
+        <div><h3>Wildlife protection</h3><p class="cost">$1 / month</p><p>Temporarily reduces output when birds are detected near your receiver.</p></div>
+        <div><h3>Volcano Insurance bundle</h3><p class="cost">One bill</p><p>Combine with Volcano Insurance for simplified monthly billing.</p></div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div>
+        <h2>Service area</h2>
+        <p>WardenClyffe II currently serves three regions.</p>
+        <div class="cov">
+          <div class="yes"><h3>Available</h3><ul><li>Western Pennsylvania</li><li>Ohio (level terrain)</li><li>Las Vegas, Nevada</li></ul></div>
+          <div class="no"><h3>Not available</h3><ul><li>New Jersey</li><li>Indiana</li></ul></div>
+        </div>
+        <p class="fine">Service in Ohio is limited to areas of level terrain. WardenClyffe does not serve, and does not plan to serve, New Jersey or Indiana.</p>
+      </div>
+      <figure class="photo">
+        <div class="slot" data-slot="plans-coverage" data-label="Service area"></div>
+        <figcaption>Current transmission area.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="page-about" data-page="about">
+  <div class="pagehead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / About</div>
+    <h1>About us</h1>
+    <p class="lede">WardenClyffe Power &amp; Light was founded to complete the wireless power system Nikola Tesla began building in 1901.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="split" style="margin-top:0">
+      <div>
+        <h2>Our mission</h2>
+        <p>To deliver reliable wireless electricity to every home in our service area, and to finish what was started on Long Island more than a century ago.</p>
+        <p>The original Wardenclyffe Tower was never completed. We consider it a project that was paused.</p>
+      </div>
+      <figure class="photo"><div class="slot" data-slot="history-archive" data-label="Historical photo"></div><figcaption>Wardenclyffe laboratory and tower, Shoreham, New York, around 1904.</figcaption></figure>
+    </div>
+
+    <div class="sec">
+      <h2>Our history</h2>
+      <div class="legend"><span>Historical record</span><span class="o">WardenClyffe Power &amp; Light</span></div>
+      <ol class="timeline">
+        <li><div class="yr">1901</div><p>Tesla begins construction at Wardenclyffe in Shoreham, New York, backed by $150,000 from financier J.P. Morgan.</p></li>
+        <li><div class="yr">1902</div><p>The 187-foot tower rises beside a brick laboratory designed by architect Stanford White.</p></li>
+        <li><div class="yr">1903</div><p>Costs climb. Morgan declines to invest further, and funding dries up.</p></li>
+        <li><div class="yr">1906</div><p>Work at the site effectively stops. The system is never completed.</p></li>
+        <li><div class="yr">1917</div><p>The tower is demolished and sold for scrap to help settle debts.</p></li>
+        <li><div class="yr">2013</div><p>The original site is purchased by a nonprofit after a public fundraising campaign and later developed into a science center honoring Tesla.</p></li>
+        <li class="ours"><div class="yr">2025</div><p>Wild Wipes Draws obtains a copy of the original tower plans.</p></li>
+        <li class="ours"><div class="yr">Spring 2026</div><p>Construction of WardenClyffe II begins in Kvikkjokk, Sweden.</p></li>
+        <li class="ours"><div class="yr">Summer 2026</div><p>First successful transmission to a residential customer.</p></li>
+        <li class="ours"><div class="yr">Fall 2026</div><p>Service expands to Las Vegas, Nevada.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTORS & CONTACT -->
+<section class="page" id="page-investors" data-page="investors">
+  <div class="pagehead"><div class="wrap">
+    <div class="crumb"><a href="#home">Home</a> / Investors</div>
+    <h1>Investors</h1>
+    <p class="lede">WardenClyffe Power &amp; Light is a wholly owned subsidiary of Wild Wipes Draws.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="ticker" aria-label="Stock price" style="margin-top:0">
+      <span class="sym">WWD</span>
+      <span class="val">$5.00</span>
+      <span class="chg">0.00 (0.00%) since founding</span>
+    </div>
+
+    <div class="sec">
+      <h2>Leadership</h2>
+      <div class="board">
+        <figure><div class="slot square" data-slot="board-1" data-label="Portrait"></div>
+          <figcaption><b>Eleanor Whitcomb</b>Chief Executive Officer</figcaption></figure>
+        <figure><div class="slot square" data-slot="board-2" data-label="Portrait"></div>
+          <figcaption><b>Marcus Hale</b>Chief Financial Officer</figcaption></figure>
+        <figure><div class="slot square" data-slot="board-3" data-label="Portrait"></div>
+          <figcaption><b>Dr. Ivan Petrović</b>Chief Engineer</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Is wireless power safe?</summary><p>WardenClyffe II operates within all applicable regulations. There are currently no applicable regulations.</p></details>
+      <details><summary>Do I need to cancel my current electric service?</summary><p>No. WardenClyffe service operates independently of your existing provider.</p></details>
+      <details><summary>Why isn’t service available in New Jersey or Indiana?</summary><p>This decision is final.</p></details>
+      <details><summary>Is WardenClyffe affiliated with Tesla?</summary><p>No. We are not affiliated with Nikola Tesla’s estate, Tesla, Inc., or the Tesla Science Center at Wardenclyffe.</p></details>
+      <details><summary>How does billing work?</summary><p>Customers are billed monthly. Paperless billing is available on all plans.</p></details>
+    </div>
+
+    <div class="contact" id="contact">
+      <div class="contact-meta">
+        <h2>Contact us</h2>
+        <p>Request service, ask about coverage, or reach our investor relations team.</p>
+        <p><strong>Headquarters</strong>WardenClyffe II<br>Kvikkjokk, Sweden</p>
+        <p><strong>Customer service</strong>1-800-555-0187<br>Mon–Fri, 8 a.m.–6 p.m. ET</p>
+      </div>
+      <div>
+        <div class="field"><label for="f-name">Full name</label><input id="f-name" autocomplete="name"><span class="err" id="e-name">Enter your full name.</span></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"><span class="err" id="e-email">Enter a valid email address.</span></div>
+        <div class="field"><label for="f-topic">Inquiry type</label>
+          <select id="f-topic"><option>Request service</option><option>Coverage question</option><option>Investor relations</option></select></div>
+        <div class="field"><label for="f-region">Service region</label>
+          <select id="f-region">
+            <option>Western Pennsylvania</option>
+            <option>Ohio</option>
+            <option>Las Vegas, Nevada</option>
+            <option>New Jersey</option>
+            <option>Indiana</option>
+          </select>
+          <span class="err" id="e-region">Service is not available in this state.</span>
+        </div>
+        <div class="field"><label for="f-plan">Plan</label>
+          <select id="f-plan"><option>Residential Plus</option><option>Residential Basic</option><option>Business</option></select></div>
+        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg"></textarea></div>
+        <button class="btn primary" id="send">Submit request</button>
+        <div class="confirm" id="confirm" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <a class="brand" href="#home"><span data-tower="mini"></span><span><b>WardenClyffe Power &amp; Light</b><small>A Wild Wipes Draws company</small></span></a>
+        <p style="margin-top:14px;color:#9FB0C8">Wireless electricity for Western Pennsylvania, Ohio, and Las Vegas.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#technology">Technology</a></li><li><a href="#about">About</a></li><li><a href="#investors">Investors</a></li></ul></div>
+      <div><h4>Customers</h4><ul><li><a href="#plans">Plans &amp; pricing</a></li><li><a href="#plans">Service area</a></li><li><a href="#contact">Contact us</a></li></ul></div>
+    </div>
+    <div class="disclaimer">
+      <h4>Disclaimer</h4>
+      <p>This website is satire created by Wild Wipes Draws for comedic and artistic purposes. WardenClyffe Power &amp; Light is not a real company, WardenClyffe II does not exist, and no electricity, wireless or otherwise, is sold or delivered. Nothing on this site is an offer of service, insurance, or securities, and “WWD” is not a real stock. People named on this site are fictional, and forms on this site do not send or store any information.</p>
+      <p>This site is not affiliated with, endorsed by, or connected to the Tesla Science Center at Wardenclyffe, Tesla, Inc., or the estate of Nikola Tesla. Historical dates about the original Wardenclyffe Tower are included for context; everything involving Wild Wipes Draws is made up.</p>
+      <p>Do not stand near tall metal structures during thunderstorms, and do not attempt to build a transmission tower.</p>
+    </div>
+    <p class="copy">© 2026 Wild Wipes Draws. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------- Tower drawing ----------
+  function lattice(x0top,x1top,x0bot,x1bot,yTop,yBot,levels){
+    let s='';
+    const L=(t)=>x0top+(x0bot-x0top)*t, R=(t)=>x1top+(x1bot-x1top)*t;
+    for(let i=0;i<=levels;i++){
+      const t=i/levels, y=yTop+(yBot-yTop)*t;
+      s+=`<line x1="${L(t).toFixed(1)}" y1="${y.toFixed(1)}" x2="${R(t).toFixed(1)}" y2="${y.toFixed(1)}"/>`;
+      if(i<levels){
+        const t2=(i+1)/levels, y2=yTop+(yBot-yTop)*t2;
+        s+=`<line x1="${L(t).toFixed(1)}" y1="${y.toFixed(1)}" x2="${R(t2).toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+        s+=`<line x1="${R(t).toFixed(1)}" y1="${y.toFixed(1)}" x2="${L(t2).toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+      }
+    }
+    s+=`<line x1="${x0top}" y1="${yTop}" x2="${x0bot}" y2="${yBot}" stroke-width="2.4"/>`;
+    s+=`<line x1="${x1top}" y1="${yTop}" x2="${x1bot}" y2="${yBot}" stroke-width="2.4"/>`;
+    const mT=(x0top+x1top)/2, mB=(x0bot+x1bot)/2;
+    s+=`<line x1="${mT-8}" y1="${yTop}" x2="${mB-22}" y2="${yBot}"/>`;
+    s+=`<line x1="${mT+8}" y1="${yTop}" x2="${mB+22}" y2="${yBot}"/>`;
+    return s;
+  }
+  // tower in local coords: 200 wide, 400 tall; dome top ~y18, base y380
+  function towerGroup(stroke,fill){
+    return `<g stroke="${stroke}" stroke-width="1.1" fill="none">
+      ${lattice(72,128,38,162,70,380,11)}
+      <path d="M36 72 Q36 16 100 14 Q164 16 164 72 Z" fill="${fill}" stroke-width="2"/>
+      <path d="M36 72 L164 72" stroke-width="3"/>
+      <path d="M52 44 Q100 30 148 44 M42 60 Q100 48 158 60" stroke-width=".9"/>
+      <line x1="100" y1="14" x2="100" y2="4" stroke-width="2"/>
+    </g>`;
+  }
+  function mini(){
+    return `<svg viewBox="0 0 200 400" width="34" height="52" aria-hidden="true" style="color:currentColor">${towerGroup('currentColor','currentColor')}</svg>`;
+  }
+
+  document.querySelectorAll('[data-tower="mini"]').forEach(el=>{ el.outerHTML = mini(); });
+
+  // ---------- Routing ----------
+  const pages=['home','technology','plans','about','investors'];
+  const alias={contact:'investors',tower:'technology',history:'about'};
+  const titles={home:'Wireless Power',technology:'Technology',plans:'Plans & Pricing',about:'About Us',investors:'Investors'};
+  function route(){
+    const raw=(location.hash||'#home').slice(1);
+    let p=alias[raw]||raw;
+    if(!pages.includes(p)) p='home';
+    document.querySelectorAll('.page').forEach(s=>s.classList.toggle('active', s.dataset.page===p));
+    document.querySelectorAll('nav.main a:not(.cta)').forEach(a=>{
+      if(a.getAttribute('href')==='#'+p) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    document.title=titles[p]+' | WardenClyffe Power & Light';
+    if(raw==='contact'){ requestAnimationFrame(()=>document.getElementById('contact').scrollIntoView()); }
+    else window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route); route();
+
+
+  const $=id=>document.getElementById(id);
+  // ---------- Photos ----------
+  // To change a picture, replace the file in /images with one of the same name,
+  // or edit the path below.
+  const PHOTOS = {
+    'home-hero':       'images/home-hero.jpg',
+    'home-feature':    'images/home-feature.jpg',
+    'tower-feature':   'images/tower-feature.jpg',
+    'plans-coverage':  'images/plans-coverage.jpg',
+    'history-archive': 'images/history-archive.jpg',
+    'board-1':         'images/board-1.gif',
+    'board-2':         'images/board-2.jpg',
+    'board-3':         'images/board-3.jpg'
+  };
+  const markSvg = mini();
+  document.querySelectorAll('.slot').forEach(el=>{
+    el.insertAdjacentHTML('beforeend',`<div class="ph">${markSvg}<span>${el.dataset.label}</span></div>`);
+    const src=PHOTOS[el.dataset.slot]; if(!src) return;
+    const img=new Image(); img.alt=el.dataset.label;
+    img.onload=()=>{ el.prepend(img); el.classList.add('filled'); };
+    img.src=src;
+  });
+
+  // ---------- Form ----------
+  $('f-region').addEventListener('change',()=>{
+    const bad=['New Jersey','Indiana'].includes($('f-region').value);
+    $('e-region').classList.toggle('show',bad);
+  });
+  $('send').addEventListener('click',()=>{
+    const name=$('f-name').value.trim(), email=$('f-email').value.trim(), region=$('f-region').value;
+    let ok=true;
+    $('e-name').classList.toggle('show',!name); if(!name) ok=false;
+    const eBad=!/^\S+@\S+\.\S+$/.test(email); $('e-email').classList.toggle('show',eBad); if(eBad) ok=false;
+    const rBad=['New Jersey','Indiana'].includes(region); $('e-region').classList.toggle('show',rBad); if(rBad) ok=false;
+    const c=$('confirm');
+    if(!ok){ c.classList.remove('show'); return; }
+    c.textContent=`Thank you, ${name}. Your ${$('f-topic').value.toLowerCase()} for ${region} has been received. A representative will follow up by email.`;
+    c.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
